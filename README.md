@@ -1,1 +1,2 @@
 # postman_zidonghua
+实现postman+newman+jenkins完成接口自动化测试定期推送邮件
