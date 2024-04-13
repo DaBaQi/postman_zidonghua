@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "79af81b9-dc41-45b3-8aa0-913fbec3cc28",
+		"name": "接口关联获取返回值并引用",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20144786"
+	},
+	"item": [
+		{
+			"name": "接口2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var city = pm.variables.get(\"city\");\r",
+							"\r",
+							"// 2.响应中是否存在这三个字\r",
+							"pm.test(\"是否包含地名\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(city);     \r",
+							"});\r",
+							"\r",
+							"// 3.判断响应中某个字段的值是否等于xx\r",
+							"// pm.test(\"判断name字段是否与变量相等\", function () {\r",
+							"//     var jsonData = pm.response.json();\r",
+							"//     pm.expect(pm.response.json().city).to.eql(Date.city);\r",
+							"// });\r",
+							"\r",
+							"pm.test(\"2.0判断name字段是否与变量相等\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.eql(Date.city)});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// request_Script:请求的前置操作\r",
+							"\r",
+							"// 获取token、cookie，设置默认传参，这里对city字段进行默认传参\r",
+							"postman.setGlobalVariable(\"city\", \"富锦\");\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://apis.juhe.cn/simpleWeather/query?city={{city}}&key=2e9e88b4bb06c63ca0b1149aa05f6337",
+					"protocol": "http",
+					"host": [
+						"apis",
+						"juhe",
+						"cn"
+					],
+					"path": [
+						"simpleWeather",
+						"query"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "{{city}}"
+						},
+						{
+							"key": "key",
+							"value": "2e9e88b4bb06c63ca0b1149aa05f6337"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "接口1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var city = pm.variables.get(\"city\");\r",
+							"\r",
+							"// 2.响应中是否存在这三个字\r",
+							"pm.test(\"是否包含地名\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(city);     \r",
+							"});\r",
+							"\r",
+							"// 3.判断响应中某个字段的值是否等于xx\r",
+							"// pm.test(\"判断name字段是否与变量相等\", function () {\r",
+							"//     var jsonData = pm.response.json();\r",
+							"//     pm.expect(pm.response.json().city).to.eql(Date.city);\r",
+							"// });\r",
+							"\r",
+							"pm.test(\"2.0判断name字段是否与变量相等\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.eql(Date.city)});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// request_Script:请求的前置操作\r",
+							"\r",
+							"// 获取token、cookie，设置默认传参，这里对city字段进行默认传参\r",
+							"postman.setGlobalVariable(\"city\", \"富锦\");\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://apis.juhe.cn/simpleWeather/query?city={{city}}&key=2e9e88b4bb06c63ca0b1149aa05f6337",
+					"protocol": "http",
+					"host": [
+						"apis",
+						"juhe",
+						"cn"
+					],
+					"path": [
+						"simpleWeather",
+						"query"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "{{city}}"
+						},
+						{
+							"key": "key",
+							"value": "2e9e88b4bb06c63ca0b1149aa05f6337"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
